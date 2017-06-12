@@ -1,4 +1,21 @@
-
 <md-toolbar color="primary">
   <span>{{title}}</span>
 </md-toolbar>
+
+<md-grid-list cols="2" rowHeight="450px">
+  <md-grid-tile>
+    <app-visor [title]="'Alignment 1'" (mappingsParsed)="set_mappings1($event)"></app-visor>
+  </md-grid-tile>
+  <md-grid-tile>
+    <app-visor [title]="'Alignment 2'" (mappingsParsed)="set_mappings2($event)"></app-visor>
+  </md-grid-tile>
+</md-grid-list>
+
+<button md-raised-button (click)="evaluate()" [disabled]="!mappings1 || !mappings2">Evaluate</button>
+<br>
+<label>True positives: </label><span>{{true_positives}}</span><br>
+<label>False positives: </label><span>{{false_positives}}</span><br>
+<label>False negatives: </label><span>{{false_negatives}}</span><br>
+<label>Precision: </label><span>{{precision}}</span><br>
+<label>Recall: </label><span>{{recall}}</span><br>
+<label>F-measure: </label><span>{{f_measure}}</span><br>

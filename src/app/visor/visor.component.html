@@ -1,0 +1,29 @@
+<h1>{{title}}
+  <button md-raised-button (click)="fileInput.click()">
+    <span>Open</span>
+    <input #fileInput type="file" (change)="file_change($event)" accept=".rdf" style="display:none;" />
+  </button>
+</h1>
+<md-tab-group class="full-height">
+  <md-tab label="Table">
+    <ng2-md-datatable>
+      <ng2-md-datatable-header>
+        <ng2-md-datatable-column sortableValue="entity1">Entity1</ng2-md-datatable-column>
+        <ng2-md-datatable-column sortableValue="relation">Relation</ng2-md-datatable-column>
+        <ng2-md-datatable-column sortableValue="entity2">Entity2</ng2-md-datatable-column>
+        <ng2-md-datatable-column sortableValue="measure" numeric>Measure</ng2-md-datatable-column>
+      </ng2-md-datatable-header>
+      <tbody>
+        <ng2-md-datatable-row *ngFor="let mapping of mappings">
+          <td>{{mapping.entity1}}</td>
+          <td>{{mapping.relation}}</td>
+          <td>{{mapping.entity2}}</td>
+          <td class="numeric">{{mapping.measure}}</td>
+        </ng2-md-datatable-row>
+      </tbody>
+    </ng2-md-datatable>
+  </md-tab>
+  <md-tab label="XML">
+    xml
+  </md-tab>
+</md-tab-group>
