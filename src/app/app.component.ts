@@ -16,10 +16,10 @@ export class AppComponent {
 	recall: number;
 	f_measure: number;
 
-	set_mappings1(mappings: any, num: number) {
+	set_mappings1(mappings: any) {
 		this.mappings1 = mappings;
 	}
-	set_mappings2(mappings: any, num: number) {
+	set_mappings2(mappings: any) {
 		this.mappings2 = mappings;
 	}
 
