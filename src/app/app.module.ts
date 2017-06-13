@@ -6,11 +6,13 @@ import { MdDataTableModule } from 'ng2-md-datatable';
 
 import { AppComponent } from './app.component';
 import { VisorComponent } from './visor/visor.component';
+import { MappingsTableComponent } from './mappings-table/mappings-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    VisorComponent
+    VisorComponent,
+    MappingsTableComponent
   ],
   imports: [
     BrowserModule,

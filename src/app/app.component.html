@@ -19,3 +19,13 @@
 <label>Precision: </label><span>{{precision}}</span><br>
 <label>Recall: </label><span>{{recall}}</span><br>
 <label>F-measure: </label><span>{{f_measure}}</span><br>
+
+<h3>Mismatched</h3>
+<md-grid-list cols="2" rowHeight="450px">
+  <md-grid-tile>
+    <app-mappings-table [mappings]="not_mappings1" class="mappings_table"></app-mappings-table>
+  </md-grid-tile>
+  <md-grid-tile>
+    <app-mappings-table [mappings]="not_mappings2" class="mappings_table"></app-mappings-table>
+  </md-grid-tile>
+</md-grid-list>
