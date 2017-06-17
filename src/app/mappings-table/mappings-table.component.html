@@ -1,5 +1,5 @@
 <div class="ng_table">
-  <ng2-md-datatable>
+  <ng2-md-datatable (sortChange)="sort($event)">
     <ng2-md-datatable-header>
       <ng2-md-datatable-column sortableValue="entity1">Entity1</ng2-md-datatable-column>
       <ng2-md-datatable-column sortableValue="relation">Relation</ng2-md-datatable-column>

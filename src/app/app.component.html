@@ -11,17 +11,20 @@
   </md-grid-tile>
 </md-grid-list>
 
-<button md-raised-button (click)="evaluate()" [disabled]="!mappings1 || !mappings2">Evaluate</button>
-<br>
-<label>True positives: </label><span>{{true_positives}}</span><br>
-<label>False positives: </label><span>{{false_positives}}</span><br>
-<label>False negatives: </label><span>{{false_negatives}}</span><br>
-<label>Precision: </label><span>{{precision}}</span><br>
-<label>Recall: </label><span>{{recall}}</span><br>
-<label>F-measure: </label><span>{{f_measure}}</span><br>
+<div class="measures">
+  <button md-raised-button color="accent" (click)="evaluate()" [disabled]="mappings1.length == 0 || mappings2.length == 0">Evaluate</button><br>
+  <br>
+  <label>True positives: </label><span>{{true_positives}}</span><br>
+  <label>False positives: </label><span>{{false_positives}}</span><br>
+  <label>False negatives: </label><span>{{false_negatives}}</span><br>
+  <br>
+  <label>Precision: </label><span>{{precision}}</span><br>
+  <label>Recall: </label><span>{{recall}}</span><br>
+  <label>F-measure: </label><span>{{f_measure}}</span><br>
+</div>
 
 <h3>Mismatched</h3>
-<md-grid-list cols="2" rowHeight="450px">
+<md-grid-list cols="2" rowHeight="400px">
   <md-grid-tile>
     <app-mappings-table [mappings]="not_mappings1" class="mappings_table"></app-mappings-table>
   </md-grid-tile>

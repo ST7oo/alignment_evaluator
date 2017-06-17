@@ -4,11 +4,13 @@ import * as xml2js from 'xml2js';
 @Component({
   selector: 'app-visor',
   templateUrl: './visor.component.html',
-  styleUrls: ['./visor.component.css']
+  styleUrls: ['./visor.component.scss']
 })
 export class VisorComponent implements OnInit {
 
   mappings: Object[];
+  name: String;
+  parameters: Object;
   @Input() title: string;
   @Output() mappingsParsed = new EventEmitter<Object[]>();
 
@@ -22,6 +24,7 @@ export class VisorComponent implements OnInit {
     let reader: FileReader = new FileReader();
     reader.onloadend = (e) => {
       let result = reader.result.trim();
+      this.name = file.name;
       this.parse_mappings(result);
       this.mappingsParsed.emit(this.mappings);
     };
@@ -34,7 +37,14 @@ export class VisorComponent implements OnInit {
     let parser = new xml2js.Parser();
     parser.parseString(xml, (err, result) => {
       console.log(result);
-      let maps = result['rdf:RDF'].Alignment[0].map;
+      let alignment = result['rdf:RDF'].Alignment[0];
+      if (alignment['alext:parameters'] && alignment['alext:parameters'][0]) {
+        this.parameters = JSON.stringify(JSON.parse(alignment['alext:parameters'][0].replace(/'/g, '"')), undefined, 2);
+      }
+      else {
+        this.parameters = null;
+      }
+      let maps = alignment.map;
       for (let map of maps) {
         let cell = map.Cell[0];
         let id;

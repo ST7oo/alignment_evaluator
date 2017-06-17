@@ -3,12 +3,13 @@
     <span>Open</span>
     <input #fileInput type="file" (change)="file_change($event)" accept=".rdf" style="display:none;" />
   </button>
+  <span class="name">{{name}}</span>
 </h1>
 <md-tab-group class="full-height">
   <md-tab label="Table">
     <app-mappings-table [mappings]="mappings"></app-mappings-table>
   </md-tab>
-  <md-tab label="XML">
-    xml
+  <md-tab label="Parameters">
+    <pre>{{parameters}}</pre>
   </md-tab>
 </md-tab-group>
