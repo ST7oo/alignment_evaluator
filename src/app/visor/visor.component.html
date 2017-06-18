@@ -3,7 +3,7 @@
     <span>Open</span>
     <input #fileInput type="file" (change)="file_change($event)" accept=".rdf" style="display:none;" />
   </button>
-  <span class="name">{{name}}</span>
+  <span class="name">{{name}} <span *ngIf="mappings">({{mappings.length}} mappings)</span></span>
 </h1>
 <md-tab-group class="full-height">
   <md-tab label="Table">
