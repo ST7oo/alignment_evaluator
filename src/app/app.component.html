@@ -1,10 +1,11 @@
 <md-toolbar color="primary">
   <span>{{title}}</span>
+  <button md-mini-fab class="info" color="primary"><md-icon (click)="info()">info_outline</md-icon></button>
 </md-toolbar>
 
 <md-grid-list cols="2" rowHeight="450px">
   <md-grid-tile>
-    <app-visor [title]="'Alignment 1'" (mappingsParsed)="set_mappings1($event)"></app-visor>
+    <app-visor [title]="'Alignment 1 (ref)'" (mappingsParsed)="set_mappings1($event)"></app-visor>
   </md-grid-tile>
   <md-grid-tile>
     <app-visor [title]="'Alignment 2'" (mappingsParsed)="set_mappings2($event)"></app-visor>

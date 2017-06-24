@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MdDialog } from '@angular/material';
+import { InfoComponent } from './info/info.component';
 
 @Component({
 	selector: 'app-root',
@@ -17,6 +19,8 @@ export class AppComponent {
 	precision: number;
 	recall: number;
 	f_measure: number;
+	
+	constructor(public dialog: MdDialog) {}
 
 	set_mappings1(mappings: any) {
 		this.mappings1 = mappings;
@@ -72,6 +76,10 @@ export class AppComponent {
 				this.not_mappings2.push(mapping2);
 			}
 		}
+	}
+
+	info() {
+		this.dialog.open(InfoComponent);
 	}
 
 }
